@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heritage Quest AR</title>
+  <!-- A-Frame and AR.js -->
+  <script src="https://aframe.io/releases/1.6.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/AR-js-org/AR.js@3.4.5/aframe/build/aframe-ar.js"></script>
+  <style>
+    body, html {
+      margin: 0;
+      overflow: hidden;
+    }
+    #arjsDebugUIContainer {
+      display: none;
+    }
+  </style>
+  <!-- API helper for minting and auction -->
+  <script src="api.js"></script>
+</head>
+<body>
+  <a-scene embedded
+           vr-mode-ui="enabled: false"
+           renderer="logarithmicDepthBuffer: true;"
+           arjs="sourceType: webcam; debugUIEnabled: false; sourceWidth: 640; sourceHeight: 480; displayWidth: 640; displayHeight: 480;">
+    <a-assets>
+      <a-asset-item id="artifactModel" src="assets/models/placeholder.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- Marker using Hiro preset -->
+    <a-marker preset="hiro" id="heritage-marker">
+      <a-box id="fallback-box"
+             position="0 0.5 0"
+             rotation="0 45 0"
+             scale="1 1 1"
+             color="#0000FF"
+             material="opacity: 0.8;">
+      </a-box>
+      <!-- Uncomment below to use a GLTF model instead of the box -->
+      <!--
+      <a-gltf-model src="#artifactModel"
+                    scale="0.1 0.1 0.1"
+                    position="0 0 0"
+                    rotation="0 180 0">
+      </a-gltf-model>
+      -->
+    </a-marker>
+
+    <a-entity camera></a-entity>
+  </a-scene>
+  
+  <script>
+    // Get the siteId from URL parameters (defaults to "hiro" if not provided)
+    const params = new URLSearchParams(window.location.search);
+    const siteId = params.get("siteId") || "hiro";
+    const user = "0xDEMO_USER"; // Replace with actual user details if available
+
+    const markerEl = document.getElementById("heritage-marker");
+    markerEl.addEventListener("markerFound", async () => {
+      const answer = prompt("Trivia: In what year was this artifact created?");
+      if (answer && answer.trim() === "1920") {
+        alert("Correct! You earn a Heritage Token.");
+        try {
+          const token = await simulateMint(siteId, "https://example.com/meta.json", user);
+          console.log("Minted token:", token);
+          const auction = await startAuction(token.tokenId, 0.1);
+          console.log("Auction started:", auction);
+          alert("Auction started! Check console for details.");
+        } catch (err) {
+          console.error(err);
+          alert("Error during minting/auction. See console.");
+        }
+      } else {
+        alert("Incorrect. Try again next time.");
+      }
+    });
+  </script>
+</body>
+</html>

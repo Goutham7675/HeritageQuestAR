@@ -1,0 +1,219 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heritage Quest</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #map {
+      height: 80vh;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+    
+    .map-container {
+      padding: 20px;
+      position: relative;
+      margin-top: 20px; /* Added gap between navbar and map */
+    }
+    
+    .leaflet-control-locate {
+      background: var(--card-bg) !important;
+      border-radius: 4px !important;
+      padding: 4px !important;
+    }
+    
+    .leaflet-control-zoom {
+      background: var(--card-bg) !important;
+      border-radius: 4px !important;
+    }
+    
+    .leaflet-control-zoom a {
+      color: var(--text-primary) !important;
+      background-color: var(--card-bg) !important;
+    }
+    
+    .leaflet-popup-content-wrapper {
+      background-color: var(--card-bg) !important;
+      color: var(--text-primary) !important;
+    }
+    
+    .leaflet-popup-tip {
+      background-color: var(--card-bg) !important;
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <div class="navbar">
+    <a href="index.html" class="navbar-brand">Heritage Quest</a>
+    <div class="navbar-nav">
+      <button id="walletBtn" class="btn btn-outline btn-sm">Connect Wallet</button>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="page-header">
+      <h1>Explore Heritage Sites</h1>
+      <p>Discover and collect digital tokens from historical landmarks</p>
+    </div>
+    
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+  </div>
+  
+  <div class="navbar-bottom">
+    <a href="index.html" class="nav-item active">
+      <i>🗺️</i>
+      <span>Map</span>
+    </a>
+    <a href="gallery.html" class="nav-item">
+      <i>🖼️</i>
+      <span>Gallery</span>
+    </a>
+    <a href="marketplace.html" class="nav-item">
+      <i>🛒</i>
+      <span>Market</span>
+    </a>
+    <a href="user.html" class="nav-item">
+      <i>👤</i>
+      <span>Profile</span>
+    </a>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+  <!-- Custom JS -->
+  <script src="common.js"></script>
+  <script src="map.js"></script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Heritage Quest</title>
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.css" />
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    #map {
+      height: 80vh;
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1;
+    }
+    .map-container {
+      padding: 20px;
+      position: relative;
+      margin-top: 20px;
+    }
+    /* Apply styles to various Leaflet controls/popups */
+    .leaflet-control-locate,
+    .leaflet-control-zoom,
+    .leaflet-control-zoom a,
+    .leaflet-popup-content-wrapper,
+    .leaflet-popup-tip {
+      background: var(--card-bg) !important;
+      border-radius: 4px !important;
+      color: var(--text-primary) !important;
+    }
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    .actions .btn {
+      padding: 10px 20px;
+      background: var(--card-bg);
+      color: var(--text-primary);
+      text-decoration: none;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      transition: background 0.3s ease;
+    }
+    .actions .btn:hover {
+      border-color: var(--text-primary);
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <div class="navbar">
+    <a href="index.html" class="navbar-brand">Heritage Quest</a>
+    <div class="navbar-nav">
+      <button id="walletBtn" class="btn btn-outline btn-sm">Connect Wallet</button>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="page-header">
+      <h1>Explore Heritage Sites</h1>
+      <p>Discover and collect digital tokens from historical landmarks</p>
+    </div>
+    
+    <div class="map-container">
+      <div id="map"></div>
+    </div>
+    
+    <div class="actions">
+      <a href="map.html" class="btn">Map View</a>
+      <a href="ar.html" class="btn">AR Experience</a>
+    </div>
+  </div>
+  
+  <div class="navbar-bottom">
+    <a href="index.html" class="nav-item">
+      <i>🏠</i>
+      <span>Home</span>
+    </a>
+    <a href="map.html" class="nav-item">
+      <i>🗺</i>
+      <span>Map</span>
+    </a>
+    <a href="gallery.html" class="nav-item">
+      <i>🖼</i>
+      <span>Gallery</span>
+    </a>
+    <a href="marketplace.html" class="nav-item">
+      <i>🛒</i>
+      <span>Market</span>
+    </a>
+    <a href="user.html" class="nav-item">
+      <i>👤</i>
+      <span>Profile</span>
+    </a>
+    <a href="ar.html" class="nav-item">
+      <i>📷</i>
+      <span>AR</span>
+    </a>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet.locatecontrol/dist/L.Control.Locate.min.js"></script>
+  <!-- Custom JS -->
+  <script src="common.js"></script>
+  <script src="map.js"></script>
+</body>
+</html>

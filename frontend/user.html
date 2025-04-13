@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile | Heritage Quest</title>
+  <!-- Particles.js -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .profile-container {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-bottom: 80px;
+    }
+    
+    .profile-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px;
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .profile-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      background-color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      color: white;
+    }
+    
+    .profile-info {
+      flex: 1;
+    }
+    
+    .profile-address {
+      font-family: monospace;
+      background-color: var(--bg-secondary);
+      padding: 5px 10px;
+      border-radius: 4px;
+      font-size: 0.9rem;
+      margin-top: 5px;
+      display: inline-block;
+    }
+    
+    .profile-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+    }
+    
+    .stat-card {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 20px;
+      text-align: center;
+      border: 1px solid var(--border-color);
+    }
+    
+    .stat-value {
+      font-size: 2rem;
+      font-weight: bold;
+      color: var(--accent);
+      margin: 10px 0;
+    }
+    
+    .stat-label {
+      color: var(--text-secondary);
+      font-size: 0.9rem;
+    }
+    
+    .token-list {
+      background-color: var(--card-bg);
+      border-radius: 8px;
+      padding: 20px;
+      border: 1px solid var(--border-color);
+    }
+    
+    .token-list h3 {
+      margin-bottom: 15px;
+      color: var(--accent);
+    }
+    
+    .token-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 10px;
+    }
+    
+    .token-mini {
+      background-color: var(--bg-secondary);
+      border-radius: 8px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    
+    .token-mini:hover {
+      transform: translateY(-3px);
+    }
+    
+    .token-mini-icon {
+      font-size: 2rem;
+      margin-bottom: 5px;
+    }
+    
+    .token-mini-id {
+      font-size: 0.8rem;
+      color: var(--text-secondary);
+    }
+    
+    @media (max-width: 768px) {
+      .profile-header {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="particles-js"></div>
+  
+  <div class="navbar">
+    <a href="index.html" class="navbar-brand">Heritage Quest</a>
+    <div class="navbar-nav">
+      <button id="walletBtn" class="btn btn-outline btn-sm">Connect Wallet</button>
+    </div>
+  </div>
+  
+  <div class="container">
+    <div class="page-header">
+      <h1>User Profile</h1>
+      <p>View your account information and collection stats</p>
+    </div>
+    
+    <div id="userInfo"></div>
+  </div>
+  
+  <div class="navbar-bottom">
+    <a href="index.html" class="nav-item">
+      <i>🗺️</i>
+      <span>Map</span>
+    </a>
+    <a href="gallery.html" class="nav-item">
+      <i>🖼️</i>
+      <span>Gallery</span>
+    </a>
+    <a href="marketplace.html" class="nav-item">
+      <i>🛒</i>
+      <span>Market</span>
+    </a>
+    <a href="user.html" class="nav-item active">
+      <i>👤</i>
+      <span>Profile</span>
+    </a>
+  </div>
+  
+  <!-- Custom JS -->
+  <script src="common.js"></script>
+  <script src="user.js"></script>
+</body>
+</html>
